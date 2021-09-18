@@ -91,14 +91,23 @@ class WebPageAnalyticTool:
 
     @property
     def header(self) -> str:
+        '''
+            returns the header for the url
+        '''
         return self.__headers
 
     @header.setter
     def header(self, header_info:str) -> None:
+        '''
+            sets the header property
+        '''
         self.__headers = header_info
 
     @property
     def get_content(self):
+        '''
+            returns the scraped page content
+        '''
         return self.__content
 
     def __get_all_tags(self):
