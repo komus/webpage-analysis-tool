@@ -5,9 +5,9 @@ with open("README.md", "r") as fh:
 
 setup(
     name="webanalytictool",
-    version="0.0.1",
+    version="0.0.2",
     description="A package for analysing webpages",
-    py_modules=["scrapso"],
+    py_modules=["analytic"],
     package_dir={"": "src"},
     long_description=long_description,
     long_description_content_type="text/markdown",
