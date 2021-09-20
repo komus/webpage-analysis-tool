@@ -22,13 +22,13 @@ setup(
     author="Oyindolapo Komolafe",
     author_email="",
 
-    install_requires = [
+    install_requires=[
         "beautifulsoup4 ~= 4.9.3",
         "requests ~= 2.25.1",
         "pandas ~= 1.3.0",
     ],
 
-    extras_require = {
+    extras_require={
         "dev": [
             "pytest >= 3.7",
         ],

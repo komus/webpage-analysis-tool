@@ -52,8 +52,7 @@ class WebPageAnalyticTool:
         if not isinstance(url, str):
             raise TypeError('accepted type is string for url')
 
-
-    def __validate_webpage_exist(self, url:str, headers) -> tuple:
+    def __validate_webpage_exist(self, url: str, headers) -> tuple:
         """
             Checks if the supplied url is valid and returns a response
         """
@@ -70,7 +69,7 @@ class WebPageAnalyticTool:
             
             self.__content = r.content
 
-    def __formaturl(self,url):
+    def __formaturl(self, url):
         """
             formatting the url to the appropriate syntax for requests
         """
@@ -93,7 +92,7 @@ class WebPageAnalyticTool:
         return self.__headers
 
     @header.setter
-    def header(self, header_info:str) -> None:
+    def header(self, header_info: str) -> None:
         '''
             sets the header property
         '''
@@ -105,7 +104,6 @@ class WebPageAnalyticTool:
             returns the scraped page content
         '''
         return self.__content
-
 
     def __get_all_tags(self):
         """
@@ -121,7 +119,6 @@ class WebPageAnalyticTool:
         """
         return self.__get_all_tags()
 
-    
     def __get_unique_tags(self):
         """
             returns all unique tags in a document
@@ -164,7 +161,7 @@ class WebPageAnalyticTool:
         """
             returns nodes path
         """
-        path = [root.name] + [tags.name for tags in root.parents if  tags.name not in ['[document]']]
+        path = [root.name] + [tags.name for tags in root.parents if tags.name not in ['[document]']]
         return ' > '.join(path[::-1])
 
     def __create_insight_df(self) -> DataFrame:
@@ -198,7 +195,7 @@ class WebPageAnalyticTool:
             returns longest node path with the most common tag
         """
         df = self.__create_insight_df()
-        return df.sort_values(by=['count','root_link'], ascending=False)['root_link'].values[0]
+        return df.sort_values(by=['count', 'root_link'], ascending=False)['root_link'].values[0]
 
     @property
     def get_longest_path_with_most_common_tag(self) -> str:
@@ -222,5 +219,5 @@ class LocalFileAdapter(requests.adapters.HTTPAdapter):
 
             return response_ret
 
-    def send(self, request, stream=False, timeout=None,verify=True, cert=None, proxies=None):
+    def send(self, request, stream=False, timeout=None, verify=True, cert=None, proxies=None):
         return self.build_response_from_file(request)
